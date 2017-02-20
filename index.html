@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+    <title></title>
+    <link rel="stylesheet" href="./css/weUi.css">
+    <link rel="stylesheet" href="./css/style.css?v=3">
+    <script src="./build/jquery.min.js"></script>
+
+</head>
+<body>
+     <div class="container" id="content">
+
+     </div>
+     <!--公用弹框-->
+     <div class="weui_dialog_alert hide" id="dialog1">
+         <div class="weui_mask"></div>
+         <div class="weui_dialog">
+             <div class="weui_dialog_hd"><strong class="weui_dialog_title"></strong></div>
+             <div class="weui_dialog_bd"></div>
+             <div class="weui_dialog_ft">
+                 <a href="javascript:;" class="weui_btn_dialog default">取消</a>
+                 <a href="javascript:;" class="weui_btn_dialog primary">确定</a>
+             </div>
+         </div>
+     </div>
+ <!--今天吃什么-->
+     <script type="text/html" id="tpl_home">
+         <div class="page">
+<div class="header">
+    <h1 class="pageTitle green" id="Name">夏小川</h1>
+    <p class="pageSecondTitle">为宅生活量身打造</p>
+</div>
+<div class="weui_grids">
+    <a class="weui_grid" href="javascript:;" data-id="dataPlan" >
+        <div class="weui_grid_icon"><img src="img/icon_nav_article.png"/> </div>
+        <p class="weui_grid_label">DatePlan</p>
+    </a>
+    <a class="weui_grid" href="javascript:;" data-id="eat">
+        <div class="weui_grid_icon"><img src="img/icon_nav_article.png"/> </div>
+        <p class="weui_grid_label">今天吃什么</p>
+    </a>
+    <a class="weui_grid" href="javascript:;" data-id="note">
+        <div class="weui_grid_icon"><img src="img/icon_nav_article.png"/> </div>
+        <p class="weui_grid_label">备忘录</p>
+    </a>
+    <a class="weui_grid" href="javascript:;" data-id="holiday">
+        <div class="weui_grid_icon"><img src="img/icon_nav_article.png"/> </div>
+        <p class="weui_grid_label">什么时候放假</p>
+    </a>
+    <a class="weui_grid" href="javascript:;" data-id="mirror">
+        <div class="weui_grid_icon"><img src="img/icon_nav_article.png"/> </div>
+        <p class="weui_grid_label">镜子</p>
+    </a>
+
+    <a class="weui_grid" href="javascript:;" data-id="chooser">
+        <div class="weui_grid_icon"><img src="img/icon_nav_article.png"/> </div>
+        <p class="weui_grid_label">抛硬币</p>
+    </a>
+
+</div>
+</div>
+     </script>
+<script type="text/html" id="tpl_eat">
+    <div class="page">
+<div class="header">
+    <h1 class="pageTitle green">今天吃什么</h1>
+    <p class="pageSecondTitle">从此不再纠结</p>
+</div>
+<div class="content" id="pageEat">
+    <div class="weui_grids ">
+        <a class="weui_grid icon1" href="javascript:;" >
+            <div class="weui_grid_icon"><img src="img/icon_nav_article.png"/> </div>
+            <p class="weui_grid_label food1"></p>
+        </a>
+        <a class="weui_grid icon2" href="javascript:;" >
+            <div class="weui_grid_icon"><img src="img/icon_nav_article.png"/> </div>
+            <p class="weui_grid_label food2"></p>
+        </a>
+        <a class="weui_grid icon3" href="javascript:;" >
+            <div class="weui_grid_icon"><img src="img/icon_nav_article.png"/> </div>
+            <p class="weui_grid_label food3"></p>
+        </a>
+        <a class="weui_grid icon8" href="javascript:;" >
+            <div class="weui_grid_icon"><img src="img/icon_nav_article.png"/> </div>
+            <p class="weui_grid_label food4"></p>
+        </a>
+        <a class="weui_grid begin" href="javascript:;" >
+            <div class="weui_grid_icon "><img src="img/icon_nav_article.png"/> </div>
+            <p class="weui_grid_label begin_label">开始</p>
+        </a>
+
+        <a class="weui_grid icon4" href="javascript:;" >
+            <div class="weui_grid_icon"><img src="img/icon_nav_article.png"/> </div>
+            <p class="weui_grid_label food5"></p>
+        </a>
+        <a class="weui_grid icon7" href="javascript:;" >
+            <div class="weui_grid_icon"><img src="img/icon_nav_article.png"/> </div>
+            <p class="weui_grid_label food6"></p>
+        </a>
+        <a class="weui_grid icon6" href="javascript:;" >
+            <div class="weui_grid_icon"><img src="img/icon_nav_article.png"/> </div>
+            <p class="weui_grid_label food7"></p>
+        </a>
+        <a class="weui_grid icon5" href="javascript:;" >
+            <div class="weui_grid_icon"><img src="img/icon_nav_article.png"/> </div>
+            <p class="weui_grid_label food8"></p>
+        </a>
+
+    </div>
+</div>
+</div>
+</script>
+<script type="text/html" id="tpl_dataPlan">
+    <div class="page">
+<div class="header">
+    <h1 class="pageTitle green">今天做点什么</h1>
+    <p class="pageSecondTitle">好好学习，天天向上</p>
+</div>
+
+
+<div class="content" id="DATA">
+    <div class="goingToDo">
+    <a class="weui_cell" href="javascript:;">
+        <div class="weui_cell_hd">
+            <i class="weui_icon_waiting"></i>
+        </div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <p></p>
+        </div>
+        <div class="weui_cell_ft"></div>
+    </a>
+    </div>
+    <p class='SecondTitle blue'>Done:</p>
+
+    <div class="ThingHasDone">
+    <a class="weui_cell" href="javascript:;">
+        <div class="weui_cell_hd">
+            <i class="weui_icon_success"></i>
+        </div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <p></p>
+        </div>
+        <div class="weui_cell_ft"></div>
+    </a>
+    </div>
+</div>
+
+
+
+</div>
+<div class="fixBottom spacing confirm" >
+    <a href="javascript:;" class="weui_btn weui_btn_primary" id="commitMenu">编辑</a>
+</div>
+<div id="actionSheet_wrap">
+    <div class="weui_mask_transition" id="mask"></div>
+    <div class="weui_actionsheet" id="weui_actionsheet">
+        <div class="weui_actionsheet_menu">
+            <div class="weui_actionsheet_cell" id="actionsheet_add">添加事项</div>
+            <div class="weui_actionsheet_cell" id="actionsheet_deleteAll">清空事项</div>
+        </div>
+        <div class="weui_actionsheet_action">
+            <div class="weui_actionsheet_cell" id="actionsheet_cancel">取消</div>
+        </div>
+    </div>
+</div>
+</script>
+
+<script type="text/html" id="tpl_note">
+    <div class="page" id="notePage">
+    <div class="header">
+        <h1 class="pageTitle green">今天记点什么</h1>
+        <p class="pageSecondTitle">好好学习，天天向上</p>
+    </div>
+
+    <div class="wxInputHolder">
+        <input type="text" class="wxInput" id="eventInput" placeholder='添加备忘'/>
+    </div>
+
+    <div class="weui_cells weui_cells_access" id="event">
+
+    </div>
+
+    <div class="fixBottom spacing confirm" >
+        <a href="javascript:;" class="weui_btn weui_btn_primary" id="AddEvent">添加</a>
+    </div>
+
+</div>
+</script>
+<script type="text/html" id="tpl_holiday">
+    <div class="page">
+    <div class="header">
+        <h1 class="pageTitle green"></h1>
+        <p class="pageSecondTitle"></p>
+    </div>
+
+</div>
+</script>
+
+<script type="text/html" id="tpl_mirror">
+    <div class="page">
+    <div class="header">
+        <h1 class="pageTitle green">mirror</h1>
+        <p class="pageSecondTitle">魔镜魔镜告诉我，长得帅是为甚莫</p>
+    </div>
+    <div class="fixBottom spacing" id="showDialog">
+        <a href="javascript:;" class="weui_btn weui_btn_primary" >打开镜子</a>
+    </div>
+
+
+</div>
+
+</script>
+<script type="text/html" id="tpl_chooser">
+    <div class="page">
+    <div class="header">
+        <h1 class="pageTitle green">Think your problem</h1>
+        <p class="pageSecondTitle">You only need the courage of your belief, instead of the choice</p>
+    </div>
+
+        <div class="center">
+            <div class="circleOut"></div>
+            <div class="circleIn"></div>
+            <div class="C-btn">Click</div>
+        </div>
+    <div class="choseBtn">
+        <span class="yes">Yes</span>
+        <span class="no">No</span>
+    </div>
+
+</div>
+</script>
+     <script type="text/html" id="tpl_edit">
+         <div class="page">
+    <div class="header">
+        <h1 class="pageTitle green" id="editTitle">编辑</h1>
+    </div>
+
+    <div class="wxInputHolder">
+        <input type="text" class="wxInput" id="testEdit" placeholder='每天都要好心情~' />
+    </div>
+
+
+    <div class="fixBottom spacing confirm" >
+        <a href="javascript:;" class="weui_btn weui_btn_primary" id="commit">确定</a>
+    </div>
+
+</div>
+     </script>
+     <script type="text/html" id="tpl_editPlan">
+         <div class="page">
+    <div class="header">
+        <h1 class="pageTitle green" id="editTitle">添加计划</h1>
+    </div>
+
+    <div class="wxInputHolder">
+        <input type="text" class="wxInput" id="DayPlanEdit" placeholder='用来编辑' />
+    </div>
+    <div class="wxInputHolder">
+        <input type="text" class="wxInput" id="DayPlanEdit2" placeholder='备注' value=""/>
+    </div>
+
+    <div class="fixBottom spacing confirm" >
+        <a href="javascript:;" class="weui_btn weui_btn_primary" id="DayPlanCommit">确定</a>
+    </div>
+
+</div>
+     </script>
+     <script type="text/html" id="tpl_editPlanItem">
+         <div class="page">
+    <div class="header">
+        <h1 class="pageTitle green" id="editTitle">编辑计划</h1>
+    </div>
+
+    <div class="wxInputHolder">
+        <input type="text" class="wxInput" id="DayPlanEdit3" placeholder='用来编辑' />
+    </div>
+    <div class="wxInputHolder">
+        <input type="text" class="wxInput" id="DayPlanEdit4" placeholder='备注' />
+    </div>
+
+    <div class="fixBottom spacing confirm" id="dataItemBottom">
+        <a href="javascript:;" class="weui_btn weui_btn_primary" id="ItemDone">Done</a>
+        <a href="javascript:;" class="weui_btn weui_btn_primary" id="ItemDelete">删除</a>
+        <a href="javascript:;" class="weui_btn weui_btn_primary" id="ItemCommit">修改</a>
+    </div>
+
+</div>
+     </script>
+<script src="./js/myMain.js"></script>
+     <script>
+     ;(function (doc, win) {
+     var docEl = doc.documentElement,
+     resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+     recalc = function () {
+     var size = 20;
+     var clientWidth = Math.min(Math.max(320,docEl.clientWidth),640);
+     if (!clientWidth) return;
+     docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+     };
+
+     if (!doc.addEventListener) return;
+     win.addEventListener(resizeEvt, recalc, false);
+     doc.addEventListener('DOMContentLoaded', recalc, false);
+     })(document, window);
+     </script>
+
+</body>
+</html>

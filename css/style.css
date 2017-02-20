@@ -1,0 +1,114 @@
+body{font-family: Microsoft YaHei, Helvetica Neue, Helvetica, Roboto, Heiti SC, STHeiTi, Arial, sans-serif;background-color: #fbf9fe;}
+a{color: #000}
+/********通用*********/
+.hide{display: none;}
+.green{color: #3cc51f}
+.blue{color: #225fba}
+/*副标题*/
+.SecondTitle{padding: 1rem;font-size: larger;font-weight: 600;}
+/*按钮或其他间距*/
+.spacing{padding:0 15px;background: #fff}
+.fixBottom{position: fixed;left: 0;bottom: 0;width: 100%;box-sizing: border-box;padding-bottom: 5px;}
+
+/********结构*********/
+.page{position: absolute;top:0;left: 0;right: 0;bottom: 0;background-color: #fbf9fe;width: 100%;overflow-y: auto;
+    -webkit-overflow-scrolling: touch;}
+.header{padding: 2rem 0}
+.pageTitle{text-align: center;font-size: 34px;font-weight: 400;}
+.pageSecondTitle{text-align: center;font-size: 0.7rem;color: #888}
+
+.content{margin-bottom: 50px;}
+.container{overflow: hidden;position: absolute;top:0;left: 0;right: 0;bottom: 0;}
+
+/********组件*********/
+/*微信输入框*/
+.wxInputHolder{width: 100%;padding: 0 15px;box-sizing: border-box;}
+.wxInputHolder input{font-size: 1rem}
+.wxInput{width: 100%;border: none;outline: none;border-bottom: 1px solid #3cc51f;;box-sizing: border-box;padding-left: 5px;background-color: #fbf9fe}
+.weui_cell{background-color:#fbf9fe;font-size: 0.8rem; }
+/*抽奖*/
+.active{background-color: #E8C2A8}
+/*选择页*/
+.center{position: relative;width: 100%;height: 10rem;}
+.circleOut{transform:rotate(0deg);-webkit-transform:rotate(0deg);left: 50%;margin-left:-5rem;position:absolute;width: 7.5rem;height: 7.5rem;border:1.25rem solid #DE7C23;border-radius: 50%;clip:rect(0,5rem,10rem,0)}
+.circleIn{transform:rotate(90deg);-webkit-transform:rotate(90deg);left: 50%;margin-left:-3.75rem;margin-top:1.25rem;position:absolute;width: 5rem;height: 5rem;border:1.25rem solid #E7A060;border-radius: 50%;clip:rect(0,3.75rem,7.5rem,0);}
+.C-btn{position: absolute;left: 50%;margin-left:-2.5rem;margin-top:2.5rem;width: 5rem;height: 5rem;color: #DE7C23;font-size: 0.9rem;line-height: 5rem;text-align: center}
+.left{transform:rotate(1080deg);transition:transform 3s ease;
+    -webkit-transform:rotate(1080deg);-webkit-transition:-webkit-transform 3s ease;
+}
+.right{transform:rotate(1260deg);transition:transform 3s ease;
+    -webkit-transform:rotate(1260deg);-webkit-transition:-webkit-transform 3s ease;
+}
+.S-left{transform:rotate(-1080deg);transition:transform 3.2s ease;
+    -webkit-transform:rotate(-1080deg);-webkit-transition:-webkit-transform 3.2s ease;
+}
+.S-right{transform:rotate(-1260deg);transition:transform 3.2s ease;
+    -webkit-transform:rotate(-1260deg);-webkit-transition:-webkit-transform 3.2s ease;
+}
+
+.choseBtn{margin-top: 1rem;width: 100%;position: relative}
+.yes,.no{display: block;width: 1.5rem;height:1.5rem;border-radius: 50%;border:2px solid #DE7C23;font-size: 0.7rem;text-align: center;line-height: 1.5rem}
+.yes{float: left;margin-left: 2rem;background-color: #DE7C23;color: #fff;}
+.no{float: right;margin-right: 2rem;color: #DE7C23 }
+
+@media screen and (max-height: 320px) {
+   #dataItemBottom{display: none}
+}
+/*切换*/
+@-webkit-keyframes a {
+    0% {
+        -webkit-transform: translate3d(100%,0,0);
+        transform: translate3d(100%,0,0)
+    }
+
+    to {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+@keyframes a {
+    0% {
+        -webkit-transform: translate3d(100%,0,0);
+        transform: translate3d(100%,0,0)
+    }
+
+    to {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+@-webkit-keyframes b {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+
+    to {
+        -webkit-transform: translate3d(100%,0,0);
+        transform: translate3d(100%,0,0)
+    }
+}
+
+@keyframes b {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+
+    to {
+        -webkit-transform: translate3d(100%,0,0);
+        transform: translate3d(100%,0,0)
+    }
+}
+
+.page.slideIn {
+    -webkit-animation: a .2s forwards;
+    animation: a .2s forwards
+}
+
+.page.slideOut {
+    -webkit-animation: b .2s forwards;
+    animation: b .2s forwards
+}
